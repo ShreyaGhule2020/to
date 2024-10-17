@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TextOperation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100h;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color:rgb(116, 248, 204);
+            color:rgb(1, 1, 70) ;
+            font-family: cursive;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px  (0, 0, 0, 0.2);
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        footer {
+            background-color: rgb(21, 255, 255);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            box-shadow: 0 -2px 5px rgba(145, 36, 36, 0.2);
+        }
+        footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .button-container {
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        button {
+            background-color: rgb(25, 151, 144);
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: rgb(242, 177, 199);
+            transform: scale(1.05);
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid: khaki;
+            border-radius: 5px;
+            background-color: white;
+        }
+        input[type="text"]:focus {
+            border-color: rgb(215, 12, 215);
+            outline: none;
+        }
+        input[type="text"]:hover {
+            border-color: rgb(103, 136, 236);
+        }
+        .social-icons img {
+            width: 40px;
+            height: 30px;
+            margin: 2 5px;
+            transition: transform 0.3s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        .textbox {
+            height: 70px;
+            width: 300px;
+        }
+
+        @media (max-width: 600px) {
+            input[type="text"], .textbox {
+                width: 80%;
+            }
+            button {
+                width: 80%;
+            }
+            footer {
+                padding: 30px;
+            }
+            .button-container{
+                justify-content:center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            header h1 {
+                font-size: 24px;
+            }
+            button {
+                font-size: 14px;
+            }
+            footer {
+                padding: 20px;
+            }
+            .button-container{
+                justify-content:center;
+                text-align: center;
+            }
+  
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Text Operation</h1>
+    </header>
+    <main>
+        <input type="text" id="inputText" placeholder="Enter your text here" class="textbox">
+        <input type="text" id="resultText" placeholder="Result" class="textbox" readonly>
+        <div class="button-container">
+            <button onclick="handleOperation('uppercase)">UPPERCASE</button>
+            <button onclick="handleOperation('lowercase')">lowercase</button>
+            <button onclick="handleOperation('wcount')">Word Count</button>
+            <button onclick="handleOperation('ccount')">Character Count</button>
+        </div>
+    </main>
+    <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+            <a href="https://linkedin.com" target="_blank" class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn"></a>
+            <a href="https://github.com/Miss-Siddhi-Pagire" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
+            <a href="https://instagram.com" target="_blank" class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <script>
+        function handleOperation(op) {
+            const input = document.getElementById('inputText').value;
+            const output = document.getElementById('resultText');
+
+            if (op === "uppercase") {
+                output.value = input.toUpperCase();
+            } else if (op === "lowercase") {
+                output.value = input.toLowerCase();
+            } else if (op === "wcount") {
+                const wordCount = input.split(" ").length;
+                output.value = `Word Count: ${wordCount}`;
+            } else if (op === "ccount") {
+                const charCount = input.length;
+                output.value = `Character Count: ${charCount}`;
+            }
+        }
+    </script>
+</body>
+</html>
